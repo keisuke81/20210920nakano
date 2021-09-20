@@ -1,10 +1,24 @@
 <template>
-  <form @submit.prevent="register">
-    <input type="text" v-model="name" placeholder="name" required />
-    <input type="email" v-model="email" placeholder="email" required />
-    <input type="password" v-model="password" placeholder="password" required />
-    <button type="submit">送信</button>
-  </form>
+    <div class="register">
+      <CommonHeader />
+      <form @submit.prevent="register" class="form">
+        <h1>新規登録</h1>
+        <div>
+          <pagesHome name="">
+            <input type="text" v-model="name" placeholder="ユーザーネーム" class="input" required />
+          </pagesHome>  
+        </div>
+        <div>
+          <input type="email" v-model="email" placeholder="メールアドレス" class="input" required />
+        </div>
+        <div>
+          <input type="password" v-model="password" placeholder="パスワード" class="input" required />
+        </div>
+        <nuxt-link to="/login">
+          <button type="submit" class="button" >新規登録</button>
+        </nuxt-link>  
+      </form>
+    </div>
 </template>
 
 <script>
@@ -33,3 +47,32 @@ export default {
   },
 };
 </script>
+<style scoped>
+ .register{
+   width:100vh;
+   position: absolute;
+  background-color: black;
+  height: 100vh;
+ }
+ .form {
+   padding:20px 0;
+   margin:100px auto;
+   text-align:center;
+   background-color: white;
+   width:50%;
+   height:30%;
+   border-radius: 5%;
+ }
+ .button{
+   margin:20px 0;
+   width:30%;
+   background-color: indigo;
+   color:white;
+   border-radius: 40%;
+   padding:5px 20px;
+ }
+ .input{
+   margin:5px 0;
+   width:50%;
+ }
+</style>
