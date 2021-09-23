@@ -36,14 +36,14 @@
             <p>tweet</p>
           </div>
         </li>
-        <li class="tweets">
+        <li class="tweetlist" v-for="tweet in tweets" :key="tweet.id">
           <p>{{name}}</p>
           <img src="../img/heart.png" alt="">
           <p>0</p>
           <img src="../img/cross.png" alt="">
           <img src="../img/detail.png" alt="">
           <div>
-            <p>{{tweet}}</p>
+            <p>{{tweetContent}}</p>
           </div>
         </li>
       </ul>
@@ -51,7 +51,21 @@
   </div>
 </template>
 <script>
-
+export default{
+  data(){
+    return {
+      tweetContent:','
+    }
+  },
+  methods: {
+    addTweet(){
+      this.$store.commit('addTweet',{
+        tweetContent:this.tweetContent,
+      })
+    },
+  }
+  
+  }
 </script>
 <style scoped>.sidebar {
   background-color: black;

@@ -4,9 +4,9 @@
       <form @submit.prevent="register" class="form">
         <h1>新規登録</h1>
         <div>
-          <pagesHome name="">
+          <PagesHome name="">
             <input type="text" v-model="name" placeholder="ユーザーネーム" class="input" required />
-          </pagesHome>  
+          </PagesHome>  
         </div>
         <div>
           <input type="email" v-model="email" placeholder="メールアドレス" class="input" required />
